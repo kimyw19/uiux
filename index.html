@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, h1, h2, h3, h4, p{
+            margin: 0;
+        }
+        img{
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        header{
+            height: 150px;
+            background-color: #ddd;
+            padding: 20px 40px;
+        }
+        header .container{
+            height: 50px;
+            background-color: #bbb;
+            display: flex;
+            justify-content: space-between;
+        }
+        header .nav-block{
+            width: 60%;
+            height: 50px;
+            background-color: #999;
+        }
+        header .faq{
+            width: 10%;
+            height: 50px;
+            background-color: #777;
+        }
+
+
+
+
+        /* 메인 스타트 */
+
+        /* 메인 슬라이드부분 */
+
+        .main-slide{
+            height: 500px;
+            position: relative; /*흐름에 빠지지 않음 */
+        }
+        .main-slide > img{
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .main-slide > .text-box{
+            position: absolute; top: 50%; /*자식 머리 부모의 정중앙*/
+            transform: translateY(-50%); /*내몸이 머리 기준 배꼽으로 변경*/
+            width: 100%; /* 내크기가 부모의 100%가 되라*/
+            text-align: center; /* 내안에 있는 자식 상속받아라 */
+            color: #fff; text-shadow: 2px 2px 5px #000;
+        }
+        .main-slide > .text-box > h1{
+            font-size: 48px;
+        }
+        .main-slide > .text-box > p{
+            font-size: 24px;
+        }
+        .main-slide > .text-box > p:nth-child(2){
+            margin-bottom: 40px;
+        }
+
+
+
+
+
+
+        /* 베스트 아이템 */
+        .best-item{
+            padding: 40px 60px 100px;
+        }
+        .best-item > h3{
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .best-item > .container{
+            display: flex;
+            gap: 20px;
+        }
+        .best-item .item{
+            
+        }
+        .best-item > .container img{
+            height: 400px;
+            margin-bottom: 24px;
+        }
+        .best-item .container .title{
+            margin-bottom: 12px; font-weight: 600; color: rgb(26, 119, 88);
+        }
+        .best-item .container .source .be{
+            color: #bbb;
+            margin-right: 20px;
+            text-decoration: line-through;
+        }
+        .best-item .source span:last-child{
+            font-weight: 600;
+            color: rgb(17, 95, 69);
+        }
+
+
+
+
+        /* 브랜드 이미지 */
+        .brand-img{
+            margin-bottom: 100px;
+        }
+        .brand-img > .container{
+            display: flex;
+        }
+        .brand-img .text-box{
+            width: 30%;
+            box-sizing: border-box;
+            padding: 60px 20px 0px 80px;            
+        }
+        .brand-img .text-box .title{
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .brand-img .text-box .source{
+            margin-bottom: 48px;
+        }
+        .brand-img .text-box .button{
+            width: 60%; height: 40px;
+            text-align: center; align-content: center;
+            background-color: rgb(26, 119, 88);
+            font-weight: 600; color: #fff;
+        }
+        .brand-img .img-box{
+            width: 70%;
+            overflow: hidden;
+        }
+        .brand-img .img-box > .con{
+            display: flex;
+            width: 200%;
+            gap: 20px;
+        }
+        .brand-img .img-box > .con > .item{
+            width: 100%;
+            height: 400px;
+        }
+        .brand-img .img-box > .con > .item img{
+            height: 100%;
+        
+        }
+
+
+
+        /* 이벤트 이미지 */
+        .event-img{
+            display: flex;
+            margin-bottom: 100px;
+        }
+        .event-img .item{
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .event-img .item img{
+            height: 500px;
+            transition: 2s;
+        }
+        .event-img .item:hover img{ 
+            transform: scale(1.2);
+            
+        }
+
+        .event-img .item .text-box{
+            position: absolute;
+            left: 60px;
+            bottom: 80px;
+            color: #fff; text-shadow: 2px 2px 2px #777;
+            width: 50%;
+        }
+        .event-img .text-box .title{
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        .event-img .text-box .source{
+            margin-bottom: 18px;
+        }
+        .event-img .text-box .button{
+            border: 1px solid #fff;
+            font-size: 18px;
+            width: 40%; height: 40px;
+            text-align: center; align-content: center;
+        }
+        .event-img .text-box .button:hover{
+            cursor: pointer;
+            background-color: #fff;
+            color: #000;
+        }
+
+
+
+
+
+
+        /* 이벤트 아이템 이미지들 */
+        .event-item-img{
+            padding: 0px 120px;
+        }
+        .event-item-img h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .event-item-img .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px 20px;
+            margin-bottom: 100px;
+        }
+        .event-item-img .container .item{
+            width: calc((100% - 60px) / 4 );
+        }
+
+
+
+
+
+        /* 컨셉 이미지 */
+        .concept{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+        .concept .item{
+            position: relative;
+        }
+        .concept .item img{
+            height: 500px;
+        }
+        .concept .text-box{
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            translate: 0 -50%;
+        }
+        .concept .item:nth-child(2) .text-box{
+            left: auto;
+            right: 100px;
+            text-align: right;
+        }
+        .concept .text-box .title{
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+
+
+
+        /* 스토리 이미지 */
+        .story-img{
+            padding: 0 80px;
+        }.story-img h2{
+            margin-bottom: 12px;
+        }
+        .story-img .container{
+            display: flex;
+            gap: 20px;
+        }
+        .story-img .container img{
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <div class="nav-block">
+                    <div class="logo"></div>
+                    <nav></nav>
+                </div>
+                <div class="faq"></div>
+            </div>
+        </header>
+        <main>
+            <section class="main-slide">
+                <img src="./s1.jpg" alt="">
+                <div class="text-box">
+                    <h1>Letraset sheets containing</h1>
+                    <p>industry's standard dummy text ever</p>
+                    <p>Content here, content here, making it look</p>
+                </div>
+            </section>
+            <section class="best-item">
+                <h3>Best</h3>
+                <div class="container">
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">커버서울 베스티안 선스크린</p>
+                        <p class="source"><span class="be">32,000 KRW</span><span>28,800KRW</span></p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">커버서울 베스티안 선스크린</p>
+                        <p class="source"><span>28,800KRW</span></p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">커버서울 베스티안 선스크린</p>
+                        <p class="source"><span class="be">32,000 KRW</span><span>28,800KRW</span></p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">커버서울 베스티안 선스크린</p>
+                        <p class="source"><span>28,800KRW</span></p>
+                    </div>
+                </div>
+            </section>
+            <section class="brand-img">
+                <div class="container">
+                    <div class="text-box">
+                        <p class="title">Extremes of Good and Evil</p>
+                        <p class="source">printing and typesetting industry.<br> Lorem Ipsum has been the industry's standard dummy</p>
+                        <div class="button">MEET TOCOBO</div>
+                    </div>
+                    <div class="img-box">
+                        <div class="con">
+                            <div class="item">
+                                <img src="./s1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img src="./s1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img src="./s1.jpg" alt="">
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </section>
+            <section class="event-img">
+                <div class="item">
+                    <img src="s1.jpg" alt="">
+                    <div class="text-box">
+                        <p class="title">Contrary to popular belief</p>
+                        <p class="source">piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                        <div class="button">더알아보기</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="s1.jpg" alt="">
+                    <div class="text-box">
+                        <p class="title">Contrary to popular belief</p>
+                        <p class="source">piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                        <div class="button">더알아보기</div>
+                    </div>
+                </div>
+            </section>
+            <section class="event-item-img">
+                <h2>BEST</h2>
+                <div class="container">
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                    <div class="item">
+                        <img src="s1.jpg" alt="">
+                        <p class="title">블랙 쿠션 파운데이션</p>
+                    </div>
+                </div>
+            </section>
+            <section class="concept">
+                <div class="item">
+                    <img src="./s1.jpg" alt="">
+                    <div class="text-box">
+                        <p class="title">FACE</p>
+                        <p class="source">베이스 제품 전체 보기</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="./img1.jpg" alt="">
+                    <div class="text-box">
+                        <p class="title">FACE</p>
+                        <p class="source">베이스 제품 전체 보기</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="./s2.jpg" alt="">
+                    <div class="text-box">
+                        <p class="title">FACE</p>
+                        <p class="source">베이스 제품 전체 보기</p>
+                    </div>
+                </div>
+            </section>
+            <section class="story-img">
+                <h2>SEOUL Life</h2>
+                <div class="container">
+                    <div class="item">
+                        <img src="./s1.jpg" alt="">
+                        <div class="text-box">
+                            <p class="title">[NEW]</p>
+                            <p class="source">버스 정류장</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./s1.jpg" alt="">
+                        <div class="text-box">
+                            <p class="title">[NEW]</p>
+                            <p class="source">버스 정류장</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./s1.jpg" alt="">
+                        <div class="text-box">
+                            <p class="title">[NEW]</p>
+                            <p class="source">버스 정류장</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
