@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<style>
+    body, h1, h2, h3, h4, p{
+        margin: 0;
+    }
+    img{
+        width: 100%; object-fit: cover; display: block;
+    }
+    header{
+        height: 70vh;
+        position: relative;
+    }
+    header img{
+        height: 100%;        
+    }
+    nav{
+        position: absolute; left: 0; top: 0;
+        width: 100%; height: 50px; 
+        color: #fff;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 50px; box-sizing: border-box;
+    }
+    nav .logo{
+        display: flex; align-items: center; gap: 10px;
+        font-size: 20px; text-transform: uppercase;
+    }
+    nav .menu{
+        display: flex; gap: 30px;
+        text-transform: capitalize; 
+    }
+    nav .icon-box{
+        display: flex; gap: 20px; align-items: center;
+        text-transform: capitalize;
+    }
+    nav .icon-l{
+        width: 65px;
+        height: 30px;
+        align-content: center; text-align: center;
+        border-bottom: 2px solid #fff;
+    }
+    nav .icon-l i{
+        margin-left: 5px;
+    }
+    nav .icon-box .reservation{
+        padding: 3px 20px;
+        background-color: rgb(133, 86, 30);
+    }
+
+    header .text-box{
+        position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+        color: #fff;
+    }
+
+    /* 스페셜 오퍼 */
+    .s1{
+        padding: 80px 200px;
+    }
+    .s1 h2{
+        margin-bottom: 80px;
+    }
+    .s1 .container{
+        display: flex; justify-content: space-between;
+    }
+    .s1 .container .item{
+        width: calc((100% - 60px)/4);
+        cursor: pointer;
+    }
+    .s1 .container .item .img-box{
+        height: 250px; margin-bottom: 10px;
+        overflow: hidden; position: relative;
+    }
+    .s1 .container .item .img-box img{
+        height: 100%;
+        transition: 1s;
+    }
+    .s1 .container .item h4{
+        margin-bottom: 10px;
+    }
+    .s1 .container .item .middle{
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+    .s1 .container .item .bottom{
+        line-height: 1.8;
+    }
+    .s1 .container .item .bottom span{
+        font-weight: 600; margin-right: 20px;
+    }
+    .s1 .item:hover img{
+        scale: 1.2;
+    }
+    .s1 .item:hover span{
+        color: red;
+    }
+    .s1 .item:hover .img-box::after{
+        content: "예약하기";
+        position: absolute;
+        left: 50%; top: 50%; transform: translate(-50%, -50%);
+        font-size: 20px;
+        padding: 5px 20px;
+        background-color: #0008;
+        color: #fff;
+    }
+
+
+    .s2{
+        height: 60vh;
+        position: relative;
+    }
+    .s2 img{
+        height: 100%;
+    }
+    .s2 .bg{
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(to bottom, #000e, #0000);
+    }
+    .s2 .tap-menu{
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        color: #fff;
+        transform: translateX(-50%);
+        width: 90%;
+        display: flex; justify-content: space-between;
+    }
+    .s2 .tap-menu .menu{
+        width: calc((100% - 30px)/4);
+        height: 40px;
+        align-content: center;
+        border-top: 2px solid #ffffff;
+    }
+    .s2 .text-box{
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        width: 30%;
+    }
+    .s2 .text-box h2{
+        margin-bottom: 24px;
+    }
+    .s2 .double{
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+        display: flex;
+        width: 40%;
+        justify-content: space-between; color: #fff;
+    }
+    .s2 .double .menu{
+        width: calc((100% - 40px)/3);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        border-bottom: 2px solid #fff;
+    }
+    img{
+        width: 100%; object-fit: cover; display: block;
+    }
+    .s3{
+        padding: 50px 0px 150px 100px;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .s3 .container{
+        width: 70%;
+        margin-left: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .s3 .container .item{
+        width: calc((100% - 40px)/3); color: #fff;
+    }
+    .s3 .container .item img{
+        height: 300px;
+    }
+    .s3 .bg{
+        width: calc(100% - 100px);
+        height: 120px;
+        background-color: #000;
+        position: absolute;
+        bottom: 100px;
+        z-index: -1;
+    }
+    .s4{
+        padding: 80px 40px;
+    }
+    .s4 h2{
+        font-size: 42px;
+        margin-bottom: 30px;
+    }
+    .s4 .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .s4 .container .item{
+        width: calc((100% - 20px)/2);
+        height: 400px;
+        position: relative;
+    }
+    .s4 .container .item img{
+        height: 100%;
+    }
+    .s4 .container .item .text-box{
+        position: absolute;
+        right: 30px; top: 30px; color: #fff;
+    }
+    .s4 .container .item .text-box .title{
+        font-size: 26px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <header>
+            <img src="plant-6544088_640.jpg" alt="">
+            <nav>
+                <div class="logo">
+                    <i class="fa-solid fa-web-awesome"></i>
+                    <p>royal hotel seoul</p>
+                </div>
+                <div class="menu">
+                    <p>special offers</p>
+                    <p>room</p>
+                    <p>dining</p>
+                    <p>wedding & banquet</p>
+                    <p>share</p>
+                    <p>facility</p>
+                    <p>stroy</p>
+                    <p>membership</p>
+                    <p>access</p>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-l">
+                        kor
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <div class="reservation">reservation</div>
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <div class="text-box">
+                <h1>BEST SPOT OF SEOUL</h1>
+                <p>서울의 중심 명동, 그 중심에 서 있는 로얄호텔서울</p>
+            </div>
+        </header>
+        <main>
+            <section class="s1">
+                <h2>SPECIAL OFFERS</h2>
+                <div class="container">
+                    <div class="item">
+                        <div class="img-box">
+                            <img src="cat.jpg" alt="">
+                        </div>
+                        <h4>THE GREAT ESCAPE</h4>
+                        <p class="middle">
+                            일상으로부터의 안전한 탈출! <br>
+                            OO패키지로 나만의 맞춤 호캉스를 즐겨보세요
+                        </p>
+                        <p class="bottom">
+                            <span>투숙기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                            <span>예약기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="img-box">
+                            <img src="city.jpg" alt="">
+                        </div>
+                        <h4>THE GREAT ESCAPE</h4>
+                        <p class="middle">
+                            일상으로부터의 안전한 탈출! <br>
+                            OO패키지로 나만의 맞춤 호캉스를 즐겨보세요
+                        </p>
+                        <p class="bottom">
+                            <span>투숙기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                            <span>예약기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="img-box">
+                            <img src="cat.jpg" alt="">
+                        </div>
+                        <h4>THE GREAT ESCAPE</h4>
+                        <p class="middle">
+                            일상으로부터의 안전한 탈출! <br>
+                            OO패키지로 나만의 맞춤 호캉스를 즐겨보세요
+                        </p>
+                        <p class="bottom">
+                            <span>투숙기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                            <span>예약기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="img-box">
+                            <img src="city.jpg" alt="">
+                        </div>
+                        <h4>THE GREAT ESCAPE</h4>
+                        <p class="middle">
+                            일상으로부터의 안전한 탈출! <br>
+                            OO패키지로 나만의 맞춤 호캉스를 즐겨보세요
+                        </p>
+                        <p class="bottom">
+                            <span>투숙기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                            <span>예약기간</span>
+                            2021년 10월 5일 ~ 2021년 10월 7일<br>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="s2">
+                <img src="city.jpg" alt="">
+                <div class="bg"></div>
+                <div class="tap-menu">
+                    <div class="menu">Standard</div>
+                    <div class="menu">Standard</div>
+                    <div class="menu">Standard</div>
+                    <div class="menu">Standard</div>
+                </div>
+                <div class="text-box">
+                    <p class="title">Room</p>
+                    <h2>STANDARD</h2>
+                    <p class="source">
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book
+                    </p>
+                </div>
+                <div class="double">
+                    <div class="menu">DOUBLE 
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="menu">DOUBLE 
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="menu">DOUBLE 
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </section>
+            <section class="s3">
+                <h2>DINING</h2>
+                <div class="container">
+                    <div class="item">
+                        <img src="close.jpg" alt="">
+                        <div class="title">GRAND KITCHEN</div>
+                        <div class="source">simply dummy text of the printing</div>
+                    </div>
+                    <div class="item">
+                        <img src="city.jpg" alt="">
+                        <div class="title">GRAND KITCHEN</div>
+                        <div class="source">simply dummy text of the printing</div>
+                    </div>
+                    <div class="item">
+                        <img src="city.jpg" alt="">
+                        <div class="title">GRAND KITCHEN</div>
+                        <div class="source">simply dummy text of the printing</div>
+                    </div>
+                </div>
+                <div class="bg"></div>
+            </section>
+            <div class="s4">
+                <h2>SHARE</h2>
+                <div class="container">
+                    <div class="item">
+                        <img src="city.jpg" alt="">
+                        <div class="text-box">
+                            <p class="title">simply dummy text</p>
+                            <p class="source">and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="city.jpg" alt="">
+                        <div class="text-box">
+                            <p class="title">simply dummy text</p>
+                            <p class="source">and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
